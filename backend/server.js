@@ -1,19 +1,40 @@
 const express = require("express");
 const app = express();
-// const cors=require("cors")
+const cors=require("cors")
 const db = require("./db");
 const comment= require("./models/comment");
 
 
 app.use(express.json())
-// app.use(cors());
+app.use(cors());
 
 app.get("/", (req, res) => {
   // this function to check if the server is working
   res.json("GET/ is Working");
 });
 
+app.get("/comment", (req, res) => {
+  // this function use to return the whole comments to the browser 
+  comment.find({}, (err, data) => {
+    if (err) {
+      console.log("ERROR");
+     }else{
+       res.status(200).json(data);
+      }
+    })
+});
 
+// app.get("/filter", (req, res) => {
+//   // this function use to return the completed ot the uncompleted tasks
+//   comment.find({comment: req.query.comment}, (err, data) => {
+//     //           the condtion     ,                  the callback
+//       if (err) {
+//           console.log("ERROR",err);
+//       }else{
+//           res.status(200).json(data);
+//       }
+//   })
+// });
 
 app.post("/comment", (req, res) => {
   // this function use to add a new task
@@ -63,6 +84,6 @@ app.put("/comment/:id", (req, res) => {
 
 
 
-app.listen(6000, () => {
-    console.log("server 6000 is working...");
+app.listen(2222, () => {
+    console.log("server 2222 is working...");
 }); 
