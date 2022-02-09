@@ -1,5 +1,5 @@
 const mongoose =require('mongoose');
-const dbURI= "mongodb://localhost:27017/TodolistV01";
+const dbURI= "mongodb://localhost:27017/BakeryShop001";
 
 
 const db= mongoose.connection
