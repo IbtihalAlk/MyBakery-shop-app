@@ -7,7 +7,7 @@ export default function PostComment(props) {
 
     const createNewComment=()=>{
         console.log("createNewComment")
-        props.createCom({comment:newComment})
+        props.createCom({comments:newComment})
     }
     return(
     <div>
@@ -16,7 +16,9 @@ export default function PostComment(props) {
            
             <input type="name" name="name" id="name" placeholder="Name" />
             <input  type="Email" name="Email" id="Email"placeholder="Email"/>
-            <input type="message" name="message" id="message"/> 
+            <input type="message" name="message" id="message" onChange={(e)=>{
+               setnewComment(e.target.value)
+            }}/> 
              
             <button className="SendBtn" onClick={createNewComment}> Send comment</button>
             <input className="ResetBtn" type="submit" value="Reset"/>

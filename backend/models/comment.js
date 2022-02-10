@@ -2,8 +2,8 @@ const { Schema, model }= require("mongoose");
 
 
 const commentSchema = new Schema({
-    email: {type:String,required: true, },
-    name:{type:String,required: true},
+    email:{type:String },
+    name:{type:String},
     comment:String
 });
 
